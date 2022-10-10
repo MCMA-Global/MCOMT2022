@@ -5,6 +5,31 @@
   <title>Test Page</title>
 </head>
 <body>
-  <input id="ID">Exam ID</input>
-  <input id="code">Passcode</input>
-  <button id="start" onclick="begin()">Click to begin MCOMT 2022</button>
+  <script>
+    const apples = ["FkoZ4lOW04", "NhSeOjo4MH", "Rhn5sJr6To", "pBcQ105tR2", "ORLDvFZRwx", "IENCYyv4VJ", "b8H6XlA5Dt", "EUMKG0uJbK", "KY8CtN9SCi", "dr3dSyM8ST"];
+    function begin() {
+      i = document.getElementById("ident").value;
+      c = btoa(document.getElementById("code").value);
+      if (apples.includes(i)&&(c == "TUNPTVQyMDIy")) {
+        alert("The exam has not started yet. Please wait patiently!")
+      }
+      else {
+        alert("Incorrect ID or passcode.")
+        location.reload()
+      };
+    };
+  </script>
+  <p>Enter your exam ID:</p>
+  <input placeholder="ID" id=ident></input>
+  <p>Enter the exam password:</p>
+  <input placeholder="Passcode" type="password" id=code></input><br><br><br>
+  <button onclick="begin()">Click to begin MCOMT 2022</button>
+  <div style="margin-left:30px">
+    <h1>Reminders for the 2022 MCOMT</h1><br>
+    <li>You can enter the exam system and begin the exam any time around the official exam time. However, it is highly recommended that you take the exam during the designated time frame.</li><br>
+    <li>After you begin the exam, you may not leave or pause the exam until the end of the 40 minutes. Your answers will be submitted automatically if you exit fullscreen or perform any other actions on your device during the exam.</li><br>
+    <li>The problems on the 2022 MCOMT are not to be discussed after the examination until 1 December 2022.</li><br>
+    <li>Results will be released on the MCMA Global website before or on the day of 1 December 2022. All participants in the 2022 MCOMT will be eligible to attend the 2022 MCIME.</li><br>
+    <li>You should prepare sufficient blank draft paper, a pen (or another writing tool) and measuring tools (compass, ruler) before starting the exam.</li><br>
+    <li>Please do not use dictionaries, a secondary digital device, calculators, protractors, etc. during the exam. Good luck!</li>
+  </div>
