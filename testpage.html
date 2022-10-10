@@ -2,9 +2,9 @@
 <html>
 <head>
   <script>
-    const fruits = ["\x16J\x19âS\x96Ó", "6\x14\x9E::80", "F\x19ù°\x9AúN", "¤\x17\x10×NmG", "9\x12Ã¼VQÃ"];
+    const fruits = ["Klxpd7NjE5NTU3MzgwMg==hpg", "Klxpd7MjA2Mjk0NjYyMg==hpg", "Klxpd7MzkzMTczNjAzNQ==hpg", "Klxpd7NDcxMzg2ODY5MA==hpg", "Klxpd7MDY2OTEwMjM4Nw==hpg"];
     function begin() {
-      i = atob(document.getElementById("ident").value);
+      i = 'Klxpd7' + btoa(document.getElementById("ident").value) + 'hpg';
       i = fruits.includes(i);
       c = document.getElementById("code").value;
       c = btoa(btoa(c));
@@ -22,10 +22,10 @@
   <title>Test Page</title>
 </head>
 <body>
-  <p>Enter your exam ID:</p>
-  <input placeholder="ID" id="ident"></input>
+  <p>Enter your 10-digit exam code:</p>
+  <input placeholder="ID" type="number" id="ident" minlength="10" maxlength="10"></input>
   <p>Enter the exam password:</p>
-  <input placeholder="Passcode" type="password" id="code"></input><br><br><br>
+  <input placeholder="Password" type="password" id="code"></input><br><br><br>
   <button onclick="begin()">Click to begin MCOMT 2022</button>
   <div style="margin-left:30px">
     <h1>Reminders for the 2022 MCOMT</h1><br>
