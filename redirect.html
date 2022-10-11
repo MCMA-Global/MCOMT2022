@@ -6,7 +6,7 @@
     const fruits = ["Klxpd7NjE5NTU3MzgwMg==hpg", "Klxpd7MjA2Mjk0NjYyMg==hpg", "Klxpd7MzkzMTczNjAzNQ==hpg", "Klxpd7NDcxMzg2ODY5MA==hpg", "Klxpd7MDY2OTEwMjM4Nw==hpg"];
     const names = ["name1", "name2", "name3", "name4", "name5"]
     function run() {
-      code = localStorage.getItem("identifier");
+      document.getElementById("result") = localStorage.getItem("identifier");
       k = fruits.indexOf(code);
       name = fruits[k];
       document.write("Contestant exam code/ID is: " + code);
@@ -16,3 +16,4 @@
   <title>MCOMT 2022</title>
 </head>
 <body onload="run()">
+  <div id="result"></div>
