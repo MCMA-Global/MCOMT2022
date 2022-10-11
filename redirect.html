@@ -6,7 +6,7 @@
       document.write("Please verify the below information before beginning the exam:")
       const fruits = ["NjE5NTU3MzgwMg==", "MjA2Mjk0NjYyMg==", "MzkzMTczNjAzNQ==", "Klxpd7NDcxMzg2ODY5MA==hpg", "Klxpd7MDY2OTEwMjM4Nw==hpg"];
       const names = ["name1", "name2", "name3", "name4", "name5"]
-      var code1 = sessionStorage.getItem("identify");
+      var code1 = sessionStorage.identify;
       k = fruits.indexOf(btoa(code1));
       name1 = fruits[k];
       document.write("Contestant exam code/ID is: " + code1);
