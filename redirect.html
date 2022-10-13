@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <script>
-    function run() {
-      document.write("Please verify the below information before beginning the exam:")
-      const fruits = ["NjE5NTU3MzgwMg==", "MjA2Mjk0NjYyMg==", "MzkzMTczNjAzNQ==", "Klxpd7NDcxMzg2ODY5MA==hpg", "Klxpd7MDY2OTEwMjM4Nw==hpg"];
-      const names = ["name1", "name2", "name3", "name4", "name5"]
-      var code1 = localStorage.akfj1223;
-      k = fruits.indexOf(btoa(code1));
-      name1 = fruits[k];
-      document.write("Contestant exam code/ID is: " + code1);
-      document.write("Contestant name is: " + name1);
-    }
-  </script>
   <title>MCOMT 2022</title>
 </head>
-<body onload="run()">
+<body>
+  <script>
+    const fruits = ["NjE5NTU3MzgwMg==", "MjA2Mjk0NjYyMg==", "MzkzMTczNjAzNQ==", "Klxpd7NDcxMzg2ODY5MA==hpg", "Klxpd7MDY2OTEwMjM4Nw==hpg"];
+    const names = ["name1", "name2", "name3", "name4", "name5"]
+    var code1 = localStorage.akfj1223;
+    k = fruits.indexOf(btoa(code1));
+    name1 = names[k];
+  </script>
   <div id="result"></div>
+    <p>Please verify the below information before beginning the exam:</p>
+    <br>
+    <p><strong>Contestant exam code/ID is: </strong></p><script>document.write(code1)</script>
+    <br><br><br>
+    <p><strong>Contestant name is: </strong></p><script>document.write(name1)</script>
