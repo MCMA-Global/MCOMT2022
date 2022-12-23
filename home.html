@@ -1,0 +1,135 @@
+<html>
+<head>
+<style>
+	h1, h2, div, li, p, a, button, input{
+		font-family: graphik;
+	}
+
+	h1{
+		font-size: 50px;
+	}
+
+	.block{
+		background-color: white;
+		box-shadow: 1px 2px 10px 2px rgba(0,0,0,0.1);
+		padding: 2%;
+		border-radius: 40px;
+	}
+
+	.userinput{
+		/*box-shadow: 1px 2px 10px 2px rgba(0,0,0,0.1);*/
+		background-color: hsl(100, 0%, 95%);
+		border: 1px;
+		padding: 2%;
+		border-radius: 10px;
+		width: 100%;
+	}
+	.userinput:hover{
+		background-color: hsl(100, 0%, 85%);
+		font-weight: bold;
+	}
+</style>
+
+</head>
+
+<body style="margin: 3%; height: 630px;">
+
+<h1 style="text-align: center;">Mani-Cretin Open Mathematics Tournament</h1>
+
+<div id="block_info" class="block" style="position: absolute; width:41%">
+	<h2>Rules</h2>
+	<ul type="1">
+		<li>You may begin the exam any time around the recommended exam time.</li>
+		<li>After you begin the exam, you may NOT leave or pause the exam until the end of exam. Your test results will be cancelled if any form of suspecious actions is detected during the exam.</li>
+		<li>The problems on the 2022 MCOMT are not to be discussed while and after the examination until 1 December 2022.</li>
+		<li>Results will be released on the MCMA Global website before or on the day of 1 December 2022. All participants in the 2022 MCOMT will be eligible to attend the 2022 MCIME.</li>
+		<li>You should prepare sufficient blank draft paper, a pen (or another writing tool) and measuring tools (compass, ruler) before starting the exam.</li>
+		<li>Please do not use dictionaries, a secondary digital device, calculators, protractors, etc. during the exam. Good luck!</li>
+	</ul>
+</div>
+
+<div class="block" id="block_login" style="position: absolute;left:51%; width: 41%">
+	<h2>Log In</h2>
+	<input class="userinput" placeholder="Username" id="username_input"><br><br>
+	<input class="userinput" placeholder="Password" id="password_input" type="password"><br><br>
+	<button onclick="LogIn()" class="userinput">Start Exam</button><br><br>
+	<div id="checkboxes"><small>
+		<input type="checkbox" onclick="ActivateLogin()"/>I have throughly read the rules. If I violate any of the listed rules, I am willing to bear any potential consequences.<br><br>
+		<input type="checkbox" onclick="ActivateLogin()"/>I have entered fullscreen. If I switch between screens, exit fullscreen, or do anything suspcious, I understand that my test will be cancelled immediately.
+	</small></div>
+
+	<script>
+
+		setInterval(function(){Update()},10)
+
+		var inTest = false
+		var cheated = false
+		var username
+		var password
+		var activated = 0
+		const usernames = ["d","ao.li@student.keystoneacademy.cn","borison-john@outlook.com"]
+		const passwords = ["d","mani123","spacex123"]
+
+		function UpdateInTest(){
+			if ((window.innerWidth!=window.screen.width || window.outerHeight!=window.screen.height || document.visibilityState === "hidden") && cheated == false){
+				cheated = true
+				alert("You CHEATED!")
+				SendEmail("Cheated",username, true)
+			}
+		}
+
+		function Update(){
+			//console.log(window.innerWidth)
+			if (inTest){
+				UpdateInTest()
+			}
+			document.getElementById("block_login").style.height = document.getElementById("block_info").offsetHeight - 0.039*window.innerWidth
+		}
+	 
+	    function SendEmail(subject, name, cheat) {
+	      document.getElementById("emailsubject").value = subject
+	      document.getElementById("emailusername").value = name
+	      document.getElementById("reportbutton").click()
+	      if (cheat){
+	      	document.getElementById("emailhidden").name="_next"
+	      } else {
+	      	document.getElementById("emailhidden").name=""
+	      }
+	    }
+
+		function LogIn(){
+			username = document.getElementById("username_input").value
+			password = document.getElementById("password_input").value
+			if (activated >= 2){
+				if (usernames.indexOf(username)==passwords.indexOf(password) && passwords.indexOf(password)!=-1){
+					alert("Success!")
+					inTest = true
+				} else {
+					alert("Incorrect username and/or password")
+				}
+			} else {
+				document.getElementById("checkboxes").style.color = "red"
+			}
+		}
+
+		function ActivateLogin(){
+			activated += 1
+			if (activated >= 2){
+				document.getElementById("checkboxes").style.color = "black"
+			}
+		}
+
+	</script>
+</div>
+
+<div style="position: absolute; top: -500">
+	<form action="https://formsubmit.co/just4spam123@outlook.com" method="POST">
+	    <input id="emailsubject" type="text" name="Subject" required>
+	    <input id="emailusername" type="text" name="Username" required>
+	    <input id="emailhidden" type="hidden" name="" value="cheated.html">
+	    <button id="reportbutton" type="submit">Send</button>
+	</form>
+</div>
+
+</body>
+</html>
